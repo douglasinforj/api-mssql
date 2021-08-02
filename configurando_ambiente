@@ -1,0 +1,41 @@
+
+
+1 - Na pasta do Projeto:
+
+npm init -y
+
+2 - Instalar as dependencais:
+
+npm i cors
+npm i express
+npm i mssql
+npm i --save-dev nodemon
+
+"script":{
+   "start": "nodemon api.js"
+}
+
+
+
+
+3 - Banco de dados:
+
+create table clientes (
+  id int primary key identity(1,1),
+  nome varchar(100) not null,
+  email varchar(100)not null
+)
+
+insert into clientes (nome, email) values ('Fernanda Jesus', 'fernandajesus@gmail.com')
+
+select * from clientes
+
+
+4 - Criando uma procedure para adicionar dados ao banco
+
+
+create procedure cadastro @nome varchar(100), @email varchar(100)
+AS  
+  insert into clientes values (@nome, @email)
+ 
+Go
